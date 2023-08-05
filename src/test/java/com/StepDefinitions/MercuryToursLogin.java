@@ -35,11 +35,11 @@ public class MercuryToursLogin {
 
 	}
 
-	@When("user enter username and password")
-	public void user_enter_username_and_password() {
+	@When("^user enter (.*) and (.*)$")
+	public void user_enter_username_and_password(String username, String password) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(45));
-		driver.findElement(By.name("userName")).sendKeys("mercury2");
-		driver.findElement(By.name("password")).sendKeys("mercury2");
+		driver.findElement(By.name("userName")).sendKeys(username);
+		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.name("submit")).click();
 
 	}
