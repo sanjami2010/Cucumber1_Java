@@ -36,11 +36,12 @@ public class MercuryToursLogin {
 	}
 
 	@When("^user enter (.*) and (.*)$")
-	public void user_enter_username_and_password(String username, String password) {
+	public void user_enter_username_and_password(String username, String password) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(45));
 		driver.findElement(By.name("userName")).sendKeys(username);
 		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.name("submit")).click();
+		Thread.sleep(1000);
 
 	}
 
